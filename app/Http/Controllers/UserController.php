@@ -8,7 +8,32 @@ class UserController extends Controller
 {
     public function index()
     {
-        return 'Usuarios';
+        $users = [
+            'Sabina',
+            'Jose',
+            'Laura',
+            'Lili',
+            'Mariano',
+            'Nilda',
+
+        ];
+
+        //Formas de pasar variables:
+//        return view('users', [
+//            'users' => $users,
+//            'title' => 'Listado de usuarios'
+//        ]);
+
+//        return view('users')
+//            ->with('users', $users)
+//            ->with('title','Listado de usuarios');
+
+        $title = 'Listado de usuarios';
+
+        //dd(compact('ttle', 'users'));
+
+        return view('users', compact('title', 'users'));
+
     }
 
     public function show($id)
