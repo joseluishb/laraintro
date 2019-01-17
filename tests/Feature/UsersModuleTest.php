@@ -27,6 +27,8 @@ class UsersModuleTest extends TestCase
     /** @test */
     function it_loads_the_new_users_page()
     {
+        $this->withoutExceptionHandling(); //llamar este método para visualizar el error
+
         $this->get('/usuarios/nuevo')
             ->assertStatus(200)
             ->assertSee('Crear nuevo usuario');
