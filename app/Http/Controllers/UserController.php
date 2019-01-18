@@ -8,15 +8,15 @@ class UserController extends Controller
 {
     public function index()
     {
-        $users = [
-            'Sabina',
-            'Jose',
-            'Laura',
-            'Lili',
-            'Mariano',
-            'Nilda',
+        if(request()->has('empty')){
+            $users = [];
+        }else{
+            $users = [
+                'Sabina', 'Jose', 'Laura', 'Lili', 'Mariano', 'Nilda',
 
-        ];
+            ];
+        }
+
 
         //Formas de pasar variables:
 //        return view('users', [
