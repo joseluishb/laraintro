@@ -32,13 +32,13 @@ class UserController extends Controller
 
         //dd(compact('ttle', 'users'));
 
-        return view('users', compact('title', 'users'));
+        return view('users.index', compact('title', 'users'));
 
     }
 
     public function show($id)
     {
-        return "Mostrando detalle del usuario: {$id}";
+        return view('users.show', compact('id'));
     }
 
     public function create()
