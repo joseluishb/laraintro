@@ -1,5 +1,7 @@
 <?php
 
+use App\Profession;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class UserSeeder extends Seeder
@@ -19,26 +21,30 @@ class UserSeeder extends Seeder
         //CONSTRUCTOR DE CONSULTAS
 
         //$professions = DB::table('professions')->select('id')->take(1)->get();
-        $profession = DB::table('professions')->select('id')->first();
-        //dd($professions);
+        //$profession = DB::table('professions')->select('id')->first(); //$profession->id
+        //dd($profession->id);
 
         //dd($profession->first()->id); //$professions[0]
 
-        $professionId = DB::table('professions')
-                        ->where('title', 'Desarrollador back-end')
-                        ->value('id');
+//        $professionId = DB::table('professions')
+//                        ->where('title', 'Desarrollador back-end')
+//                        ->value('id');
+
+
         //dd($professionId);
 
         //METODOS MAGICOS
-        $professionId = DB::table('professions')
-            ->whereTitle('Desarrollador back-end')
-            ->value('id');
+//        $professionId = DB::table('professions')
+//            ->whereTitle('Desarrollador back-end')
+//            ->value('id');
 
-        DB::table('users')->insert([
+        $professionId = Profession::where('title', 'Desarrollador back-end')->value('id');
+
+        User::create([
             'name' => 'Jose Huaytalla',
             'email' => 'joseluishube@gmail.com',
             'password' => bcrypt('laravel'),
-            'profession_id' => $profession->first()->id, //$professions[0]->id,
+            'profession_id' => $professionId, //$professions[0]->id,
         ]);
     }
 }
