@@ -26,4 +26,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    protected $casts = [
+      'is_admin' => 'boolean'
+    ];
+
+
+    public function profession() //metodo profession en singular //id_profession //si este es el id // return $this->belongsTo(Profession::class, 'id_profession');
+    {
+        return $this->belongsTo(Profession::class); // Un usuario pertenece a una profesion
+    }
+
+    public function isAdmin()
+    {
+        //return $this->email === 'joseluishube@gmail.com';
+        return $this->isAdmin;
+    }
 }

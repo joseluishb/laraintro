@@ -45,6 +45,28 @@ class UserSeeder extends Seeder
             'email' => 'joseluishube@gmail.com',
             'password' => bcrypt('laravel'),
             'profession_id' => $professionId, //$professions[0]->id,
+            'is_admin' => true,
         ]);
+
+        factory(User::class)->create([
+           'profession_id' => $professionId
+        ]);
+
+
+        factory(User::class, 48)->create();
+
+//        User::create([
+//            'name' => 'Another user',
+//            'email' => 'anouser@gmail.com',
+//            'password' => bcrypt('laravel'),
+//            'profession_id' => $professionId, //$professions[0]->id,
+//        ]);
+//
+//        User::create([
+//            'name' => 'Another user 2',
+//            'email' => 'anouser2@gmail.com',
+//            'password' => bcrypt('laravel'),
+//            'profession_id' => null, //$professions[0]->id,
+//        ]);
     }
 }
