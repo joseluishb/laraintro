@@ -53,7 +53,17 @@ class UserSeeder extends Seeder
         ]);
 
 
+        factory(User::class)->create([
+           'name' => 'Sabina'
+        ]);
+
+        factory(User::class)->create([
+            'name' => 'Jose'
+        ]);
+
         factory(User::class, 48)->create();
+
+
 
 //        User::create([
 //            'name' => 'Another user',
