@@ -71,4 +71,34 @@ class UsersModuleTest extends TestCase
             ->assertStatus(200)
             ->assertSee('Crear nuevo usuario');
     }
+
+    /** @test */
+    public function it_creates_a_new_user()
+    {
+        //$this->withoutExceptionHandling(); //para revelar que errores hay
+
+//        $this->post('/usuarios',[
+//            'name' => 'Jose Luis HB',
+//            'email' => 'joseluishube@gmail.com',
+//            'password' => '123456'
+//        ])->assertSee('Procesando información...');
+
+        $this->post('/usuarios',[
+            'name' => 'Jose Luis HB',
+            'email' => 'joseluishube@gmail.com',
+            'password' => '123456'
+        ])->assertRedirect('usuarios');
+
+//        $this->assertDatabaseHas('users',[
+//            'name' => 'Jose Luis HB',
+//            'email' => 'joseluishube@gmail.com',
+//            //'password' => '123456'
+//        ]);
+
+        $this->assertCredentials([
+            'name' => 'Jose Luis HB',
+            'email' => 'joseluishube@gmail.com',
+            'password' => '123456'
+        ]);
+    }
 }
