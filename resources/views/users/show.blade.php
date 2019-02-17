@@ -11,4 +11,8 @@
     <p>
         Correo del usuario: {{ $user->email }}
     </p>
+
+    <p>
+        <a href="{{ route('users.index') }}">Regresar a usuarios</a>
+    </p>
 @endsection
