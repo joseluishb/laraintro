@@ -67,6 +67,8 @@ class UserController extends Controller
         // validacion con validate
         $data = request()->validate([
             'name' => 'required',
+            'email' => 'required|email|unique:users,email', //['required','email','unique']
+            'password' => 'required'
         ],[
             'name.required' => 'El campo nombre es obligatorio'
         ]);
