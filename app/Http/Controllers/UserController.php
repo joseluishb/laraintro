@@ -62,10 +62,7 @@ class UserController extends Controller
         return view('users.create');
     }
 
-    public function edit(User $user)
-    {
-        return view('users.edit', ['user' => $user]);
-    }
+
 
     public function store()
     {
@@ -94,5 +91,28 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('users.index');
+    }
+
+    public function edit(User $user)
+    {
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update(User $user)
+    {
+        //$data = request()->all();
+        $data = request()->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+
+        $data['password'] = bcrypt($data['password']);
+
+        $user->update($data);
+
+
+        //return redirect("usuarios/{$user->id}");
+        return redirect()->route('users.show',['user' => $user]);
     }
 }

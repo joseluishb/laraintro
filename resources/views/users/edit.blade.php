@@ -16,8 +16,9 @@
         </div>
     @endif
 
-    <form method="post" action="{{ url('/usuarios') }}">
-        {!! csrf_field() !!}
+    <form method="post" action="{{ url("/usuarios/{$user->id}") }}">
+        {{ method_field('PUT') }}
+        {{ csrf_field() }}
         <label for="name">Nombre:</label>
         <input type="text" name="name" id="name" placeholder="ex. Juan Pérez" value="{{ old('name', $user->name) }}">
         {{--@if ($errors->has('name'))--}}
