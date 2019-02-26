@@ -8,11 +8,11 @@
     @if ($errors->any())
         <div class="alert alert-danger">
             <h5>Por favor corrija los errores debajo:</h5>
-           {{--<ul>--}}
-               {{--@foreach($errors->all() as $error)--}}
-                   {{--<li>{{ $error }}</li>--}}
-               {{--@endforeach--}}
-           {{--</ul>--}}
+           <ul>
+               @foreach($errors->all() as $error)
+                   <li>{{ $error }}</li>
+               @endforeach
+           </ul>
         </div>
     @endif
 
@@ -20,9 +20,9 @@
         {!! csrf_field() !!}
         <label for="name">Nombre:</label>
         <input type="text" name="name" id="name" placeholder="ex. Juan Pérez">
-        @if ($errors->has('name'))
-            <p>{{ $errors->first('name') }}</p>
-        @endif
+        {{--@if ($errors->has('name'))--}}
+            {{--<p>{{ $errors->first('name') }}</p>--}}
+        {{--@endif--}}
         <br>
         <label for="email">Correo electrónico</label>
         <input type="email" name="email" id="email" placeholder="jperez@example.com" value="{{ old('email') }}">
