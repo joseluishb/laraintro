@@ -54,7 +54,7 @@
         </div>
         <div class="col-4">
             @section('sidebar')
-                <h2>Barra lateral</h2>
+                <h2>Sidebar right</h2>
             @show
         </div>
     </div>
@@ -62,7 +62,7 @@
 
 <footer class="footer">
     <div class="container">
-        <span class="text-muted">https://styde.net</span>
+        <span class="text-muted">@joseluishube</span>
     </div>
 </footer>
 
